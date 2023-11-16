@@ -1,17 +1,40 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title> Bienvenido a la app de <strong>ionic</strong> </ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+	<ion-card>
+		<ion-card-header>
+			<ion-card-title>Inicio de sesión</ion-card-title>
+		</ion-card-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+		<ion-card-content>
+			<form [formGroup]="formularioLogin">
+				<ion-item>
+					<ion-label position="floating">Usuario:</ion-label>
+					<ion-input type="text" formControlName="email"></ion-input>
+				</ion-item>
+
+				<ion-item>
+					<ion-label position="floating">Password:</ion-label>
+					<ion-input
+						type="password"
+						formControlName="password"
+					></ion-input>
+				</ion-item>
+
+				<ion-button
+					(click)="login()"
+					color="warning"
+					fill="solid"
+					shape="round"
+					type="submit"
+					[disabled]="!formularioLogin.valid"
+					>Login</ion-button
+				>
+			</form>
+		</ion-card-content>
+	</ion-card>
 </ion-content>
